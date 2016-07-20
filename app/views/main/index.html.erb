@@ -1,0 +1,20 @@
+<ul class="list-group">
+	<% @projects.each do |project| %>
+  <li class='list-group-item'><%= project.name %> <i class="fa fa-pencil" aria-hidden="true"></i><i class="fa fa-trash" aria-hidden="true"></i></li>
+
+<% end %>
+</ul>
+
+
+
+
+
+<%= form_for(@project, remote: true, html: {class: 'input-group'}) do |f| %>
+  <%= f.text_field :name, class: 'form-control' %>
+    <span class="input-group-btn">
+  <%= f.submit class: 'btn btn-secondary' %>
+  </span>
+<% end %>
+
+
+
