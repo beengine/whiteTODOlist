@@ -1,0 +1,15 @@
+    <div class='panel panel-default'>
+    <div class='panel-heading'><%= Project.last.name %> <i class="fa fa-pencil" aria-hidden="true"></i><i class="fa fa-trash" aria-hidden="true"></i></div>
+       <div class="panel-body"  >
+    <%= form_for(Task.new, url: {action: "create_task"}, remote: true, html: {class: 'input-group'}) do |f| %>
+      <%= f.hidden_field :project_id, value: Project.last.id %> 
+      <%= f.text_field :name, class: 'form-control' %>
+      <span class="input-group-btn">
+      <%= f.submit class: 'btn btn-secondary' %>
+      </span>
+    <% end %>
+
+    <ul class="list-group" id='body<%= Project.last.id %>'>
+    </ul>
+    </div>
+    </div>

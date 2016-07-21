@@ -13,7 +13,9 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
     match '/projects' => 'main#create', via: :post
+    match '/create_task' => 'main#create_task', via: :post
     resources :projects
+    resources :tasks
 
   # Example resource route with options:
   #   resources :products do

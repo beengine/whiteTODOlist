@@ -1,1 +1,2 @@
-	$('.list-group').append("<li class='list-group-item'><%= Project.last.name %></li>");
+//	$('#projects').append("<li class='list-group-item'><%= Project.last.name %></li>");
+$('#projects').append("<%= j (render 'form') %>");

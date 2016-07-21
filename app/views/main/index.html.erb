@@ -1,20 +1,40 @@
-<ul class="list-group">
-	<% @projects.each do |project| %>
-  <li class='list-group-item'><%= project.name %> <i class="fa fa-pencil" aria-hidden="true"></i><i class="fa fa-trash" aria-hidden="true"></i></li>
+ <div id='projects'>
+ <% @projects.each do |project| %>
+    <div class='panel panel-default'>
+    <div class='panel-heading'><%= project.name %> <i class="fa fa-pencil" aria-hidden="true"></i><i class="fa fa-trash" aria-hidden="true"></i></div>
+       <div class="panel-body"  >
+    <%= form_for(@task, url: {action: "create_task"}, remote: true, html: {class: 'input-group'}) do |f| %>
+      <%= f.hidden_field :project_id, value: project.id %> 
+      <%= f.text_field :name, class: 'form-control' %>
+      <span class="input-group-btn">
+      <%= f.submit class: 'btn btn-secondary' %>
+      </span>
+    <% end %>
 
+    <ul class="list-group" id='body<%= project.id %>'>
+    <% project.tasks.each do |task| %>
+      <li class='list-group-item'><%= task.name %> <i class="fa fa-pencil" aria-hidden="true"></i><i class="fa fa-trash" aria-hidden="true"></i></li>
+
+    <% end %>
+    </ul>
+    </div>
+    </div>
 <% end %>
-</ul>
+</div>
 
 
 
-
-
+<div class='panel panel-default'> 
+<div class='panel-heading'>Add project</div>
+<div class='panel-body'>
 <%= form_for(@project, remote: true, html: {class: 'input-group'}) do |f| %>
   <%= f.text_field :name, class: 'form-control' %>
     <span class="input-group-btn">
   <%= f.submit class: 'btn btn-secondary' %>
   </span>
 <% end %>
+</div>
 
 
+</div>
 
