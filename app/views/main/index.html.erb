@@ -1,7 +1,16 @@
  <div id='projects'>
  <% @projects.each do |project| %>
     <div class='panel panel-default'>
-    <div class='panel-heading'><%= project.name %> <i class="fa fa-pencil" aria-hidden="true"></i><i class="fa fa-trash" aria-hidden="true"></i></div>
+    <div class='panel-heading hm'><h3><%= project.name %> </h3>
+     <div class="btn-group pull-right">
+          <div class="btn btn-primary">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </div>
+          <div class="btn btn-danger">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </div>
+</div>
+</div>
        <div class="panel-body"  >
     <%= form_for(@task, url: {action: "create_task"}, remote: true, html: {class: 'input-group'}) do |f| %>
       <%= f.hidden_field :project_id, value: project.id %> 
@@ -13,7 +22,19 @@
 
     <ul class="list-group" id='body<%= project.id %>'>
     <% project.tasks.each do |task| %>
-      <li class='list-group-item'><%= task.name %> <i class="fa fa-pencil" aria-hidden="true"></i><i class="fa fa-trash" aria-hidden="true"></i></li>
+      <li class='list-group-item hm'>
+        <h4><%= task.name %></h4>
+        <div class="btn-group pull-right">
+          <div class="btn btn-primary">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </div>
+          <div class="btn btn-danger">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </div>
+        </div>
+        <p class='pull-right'><%= task.created_at.strftime("%d %b. %Y") %></p>
+    
+      </li>
 
     <% end %>
     </ul>
@@ -38,3 +59,4 @@
 
 </div>
 
+<div class="bs-docs-example">fghsfhsfg</div>
