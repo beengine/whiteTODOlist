@@ -15,3 +15,26 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+//= require bootstrap-datepicker
+$(document).ready(function () {
+	$('.form-control.date').datepicker({
+		format: "yyyy-mm-dd"
+	});
+
+
+
+	$('.task').focusin(function (argument) {
+		console.log('fg');
+		$(this).animate({width: "40%"},600,function () {
+			$(this).next().css('display','inline');
+		});
+		
+
+	});
+	// $('.form-inline').focusout(function (argument) {
+	// 	console.log('gf');
+	// 	$(this).children().last().hide('slow');
+	//	$(this).next().css('display','none');
+	//	});
+});
+

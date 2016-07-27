@@ -11,12 +11,16 @@
           </div>
 </div>
 </div>
-       <div class="panel-body"  >
-    <%= form_for(@task, url: {action: "create_task"}, remote: true, html: {class: 'input-group'}) do |f| %>
+       <div class="panel-body">
+    <%= form_for(@task, url: {action: "create_task"}, remote: true, html: {class: 'form-inline'}) do |f| %>
       <%= f.hidden_field :project_id, value: project.id %> 
-      <%= f.text_field :name, class: 'form-control' %>
-      <span class="input-group-btn">
-      <%= f.submit class: 'btn btn-secondary' %>
+      <%= f.text_field :name, class: 'form-control task', placeholder: 'Add task...' %>
+      <span class="hider">
+        <%= f.select(:priority, [['Low', 1], ['Normal', 2],['High', 3]],{},{ class: "form-control", prompt: "Priority"}) %>
+
+        
+        <%= f.text_field :deadline, class: 'form-control date', placeholder: 'Deadline...' %>
+        <%= f.submit class: 'btn btn-secondary' %>     
       </span>
     <% end %>
 
@@ -32,7 +36,7 @@
             <i class="fa fa-trash" aria-hidden="true"></i>
           </div>
         </div>
-        <p class='pull-right'><%= task.created_at.strftime("%d %b. %Y") %></p>
+        <p class='pull-right'><%= task.deadline %></p>
     
       </li>
 

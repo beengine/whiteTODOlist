@@ -43,7 +43,7 @@ private
   end
 
   def task_params
-    params.require(:task).permit(:name, :project_id)
+    params.require(:task).permit(:name, :project_id, :deadline, :priority)
   end
 
 end

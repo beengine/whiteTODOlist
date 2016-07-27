@@ -12,9 +12,18 @@
  *
  *= require_tree .
  *= require_self
+*= require bootstrap-datepicker
  */
 .pull-right {
   float: right;
+}
+
+.form-inline{
+	margin-bottom: 5px;
+}
+
+.form-inline > .task{
+	width: 100%;
 }
 
 .hm{
@@ -22,6 +31,10 @@
 }
 h3, h4{
 	display: inline;
+}
+
+.hider{
+	display: none;
 }
 .bs-docs-example {
   position: relative;
