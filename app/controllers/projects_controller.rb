@@ -1,4 +1,4 @@
-class MainController < ApplicationController
+class ProjectsController < ApplicationController
   def index
     @projects=Project.all
     @project=Project.new
@@ -20,30 +20,23 @@ class MainController < ApplicationController
   end
 end
 
-def create_task
-  @task = Task.new(task_params)
- 
-  respond_to do |format|
-    if @task.save
-      format.html { redirect_to @task, notice: 'User was successfully created.' }
+  def update
+
+  end
+
+  def destroy
+    @project=Project.find(params[:id])
+    @project.destroy
+    respond_to do |format|
+      format.html { redirect_to products_url }
       format.js   {}
-      format.json { render json: @task, status: :created, location: @project }
-    else
-      format.html { render action: "new" }
-      format.json { render json: @task.errors, status: :unprocessable_entity }
+      format.json { head :no_content }
     end
   end
-end
-
 
 private
 
   def project_params
     params.require(:project).permit(:name)
   end
-
-  def task_params
-    params.require(:task).permit(:name, :project_id, :deadline, :priority)
-  end
-
 end

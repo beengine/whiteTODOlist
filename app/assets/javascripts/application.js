@@ -25,11 +25,18 @@ $(document).ready(function () {
 
 	$('.task').focusin(function (argument) {
 		console.log('fg');
-		$(this).animate({width: "40%"},600,function () {
+		$(this).animate({width: "53.7%"},600,function () {
 			$(this).next().css('display','inline');
 		});
 		
 
+	});
+	$('.checker').click(function () {
+		$(this).children().first().toggleClass("fa-check-square fa-square");
+	});
+
+	$('.del').click(function () {
+		$(this).children().first().submit();
 	});
 	// $('.form-inline').focusout(function (argument) {
 	// 	console.log('gf');
