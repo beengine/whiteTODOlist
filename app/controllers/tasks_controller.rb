@@ -6,7 +6,7 @@ class TasksController < ApplicationController
       if @task.save
         format.html { redirect_to @task, notice: 'User was successfully created.' }
         format.js   {}
-        format.json { render json: @task, status: :created, location: @project }
+        format.json { render json: @task, status: :created, location: @task }
       else
         format.html { render action: "new" }
         format.json { render json: @task.errors, status: :unprocessable_entity }
@@ -14,10 +14,20 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    @task=Task.find(params[:id])
+    @task.destroy
+    respond_to do |format|
+      format.html { redirect_to products_url }
+      format.js   {}
+      format.json { head :no_content }
+    end
+  end
+
   def check
-  # Task.find(params.fetch(:id)).done=true
-    puts 'dyjd'
-    puts params
+    @task=Task.find(params[:id])
+   @task.done=!@task.done
+   @task.save
   end
 
 private

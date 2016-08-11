@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require best_in_place
+//= require jquery-ui
+//= require best_in_place.jquery-ui
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
@@ -21,7 +24,7 @@ $(document).ready(function () {
 		format: "yyyy-mm-dd"
 	});
 
-
+	jQuery(".best_in_place").best_in_place();
 
 	$('.task').focusin(function (argument) {
 		console.log('fg');
@@ -31,8 +34,9 @@ $(document).ready(function () {
 		
 
 	});
-	$('.checker').click(function () {
-		$(this).children().first().toggleClass("fa-check-square fa-square");
+	$('.check').click(function () {
+		$(this).children().last().toggleClass("fa-check-square fa-square");
+		$(this).children().first().submit();
 	});
 
 	$('.del').click(function () {
