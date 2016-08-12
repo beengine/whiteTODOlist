@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects=Project.all
+    @projects=Project.order(id: :desc).all
     @project=Project.new
     @task=Task.new
   end
@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   respond_to do |format|
     if @project.save
       format.html { redirect_to @project, notice: 'User was successfully created.' }
-      format.js   {}
+      format.js   { @task=Task.new }
       format.json { render json: @project, status: :created, location: @project }
     else
       format.html { render action: "new" }

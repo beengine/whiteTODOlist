@@ -1,2 +1,1 @@
-//	$('#projects').append("<li class='list-group-item'><%= Project.last.name %></li>");
-$('#projects').append("<%= j (render 'form') %>");
+$('#newpr').after("<%= j (render @project) %>").next().hide().slideDown('slow');

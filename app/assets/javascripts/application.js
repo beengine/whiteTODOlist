@@ -24,22 +24,28 @@ $(document).ready(function () {
 		format: "yyyy-mm-dd"
 	});
 
+	$(document).on('focus',".form-control.date", function(){
+    	$(this).datepicker({
+    		format: "yyyy-mm-dd"
+    	});
+	});
+
 	jQuery(".best_in_place").best_in_place();
 
-	$('.task').focusin(function (argument) {
+	$('.main').on('focusin', '.task', function (argument) {
 		console.log('fg');
-		$(this).animate({width: "53.7%"},600,function () {
+		$(this).animate({width: "62.9%"},600,function () {
 			$(this).next().css('display','inline');
 		});
 		
 
 	});
-	$('.check').click(function () {
+	$('.main').on('click', '.check', function () {
 		$(this).children().last().toggleClass("fa-check-square fa-square");
 		$(this).children().first().submit();
 	});
 
-	$('.del').click(function () {
+	$('.main').on('click', '.del', function () {
 		$(this).children().first().submit();
 	});
 	// $('.form-inline').focusout(function (argument) {

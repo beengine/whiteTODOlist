@@ -1,39 +1,4 @@
-#projects
-  - @projects.each do |project|
-    .panel.panel-default
-      .panel-heading.hm
-        %h3= best_in_place project, :name, :as => :input
-        .btn-group.btn-group-sm.pull-right
-          .btn.btn-default.del
-            = button_to 'Destroy', project, {method: :delete, remote: true, form_class: 'hider'}
-            %i.fa.fa-trash
-      .panel-body
-        = form_for(@task, remote: true, html: {class: 'form-inline'}) do |f|
-          = f.hidden_field :project_id, value: project.id
-          = f.text_field :name, class: 'form-control task', placeholder: 'Add task...'
-          %span.hider
-            = f.select(:priority, [['Low', 1], ['Normal', 2],['High', 3]],{},{ class: "form-control", prompt: "Priority"})
-            = f.text_field :deadline, class: 'form-control date', placeholder: 'Deadline...'
-            = f.submit class: 'btn btn-default'
-        %ul.list-group{id: "body#{project.id}"}
-          - project.tasks.each do |task|
-            %li.list-group-item.hm
-              %h4
-                = task.name 
-                %sup.deadline 
-                  = distance_of_time_in_words DateTime.now.to_date, task.deadline 
-                  remain
-              .btn-group.btn-group-sm.pull-right
-                .btn.btn-default.check
-                  = button_to "Check", check_task_path(task), {remote: true, form_class: 'hider'}
-                  %i.fa{class: task.done? ? 'fa-check-square' : 'fa-square'}
-                .btn.btn-default.edit
-                  %i.fa.fa-pencil
-                .btn.btn-default.del
-                  = button_to 'Destroy', project, {method: :delete, remote: true, form_class: 'hider'}
-                  %i.fa.fa-trash
-
-.panel.panel-default
+.panel.panel-default#newpr
   .panel-heading
     %h3 Add project
   .panel-body
@@ -41,3 +6,5 @@
       = f.text_field :name, class: 'form-control'
       %span.input-group-btn
         = f.submit class: 'btn btn-default'
+
+= render @projects
