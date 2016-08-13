@@ -1,10 +1,7 @@
-.panel.panel-default#newpr
-  .panel-heading
-    %h3 Add project
-  .panel-body
-    = form_for(@project, remote: true, html: {class: 'input-group'}) do |f|
-      = f.text_field :name, class: 'form-control'
-      %span.input-group-btn
-        = f.submit class: 'btn btn-default'
+.panel.panel-body#newpr
+  = form_for(@project, remote: true, html: {class: 'input-group'}) do |f|
+    = f.text_field :name, class: 'form-control', placeholder: 'Add project...'
+    %span.input-group-btn
+      = f.submit class: 'btn btn-default'
 
 = render @projects

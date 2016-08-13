@@ -1,15 +1,17 @@
 %li.list-group-item.hm{id: "task#{task.id}"}
-  %h4
-    = task.name 
-    %sup.deadline 
-      = distance_of_time_in_words DateTime.now.to_date, task.deadline 
-      remain
-  .btn-group.btn-group-sm.pull-right
-    .btn.btn-default.check
+  .pull-right
+    .btn.btn-xs.check
       = button_to "Check", check_task_path(task), {remote: true, form_class: 'hider'}
       %i.fa{class: task.done? ? 'fa-check-square' : 'fa-square'}
-    .btn.btn-default.edit
+    .btn.btn-xs.edit
       %i.fa.fa-pencil
-    .btn.btn-default.del
+    .btn.btn-xs.del
       = button_to 'Destroy', task, {method: :delete, remote: true, form_class: 'hider'}
       %i.fa.fa-trash
+  %div
+    %i.fa.fa-circle{class: "prior#{task.priority}"}
+    = task.name 
+    %sup.deadline 
+      = task.get_deadline
+
+    

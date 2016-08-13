@@ -19,13 +19,11 @@
 body{
   background-image: url('rail.png');
 }
-
  .main{
  	max-width: 800px;
  	margin: 0 auto;
  	padding-top: 20px; 
  }
-
 
 .form-inline{
 	margin-bottom: 5px;
@@ -38,9 +36,24 @@ body{
 .hm{
 	overflow: auto;
 }
-h3, h4{
+h4{
 	padding-top: 6px;
 	display: inline;
+}
+
+.prior1{
+  color: #0F0;
+  padding-right: 10px;
+} 
+
+.prior2{
+  color: #FD0;
+  padding-right: 10px;
+}
+
+.prior3{
+  color: #F00;
+  padding-right: 10px; 
 }
 
 .deadline{
@@ -61,17 +74,15 @@ h3, h4{
      -moz-border-radius: 4px;
           border-radius: 4px;
 }
-.bs-docs-example:after {
-  content: "Example";
+.priorooo1 {
   position: absolute;
   top: -1px;
   left: -1px;
-  padding: 3px 7px;
+  padding: 1px 2px;
   font-size: 12px;
-  font-weight: bold;
   background-color: #f5f5f5;
   border: 1px solid #ddd;
-  color: #9da0a4;
+  color: #F00;
   -webkit-border-radius: 4px 0 4px 0;
      -moz-border-radius: 4px 0 4px 0;
           border-radius: 4px 0 4px 0;
