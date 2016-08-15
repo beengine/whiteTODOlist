@@ -33,7 +33,6 @@ $(document).ready(function () {
 	jQuery(".best_in_place").best_in_place();
 
 	$('.main').on('focusin', '.task', function (argument) {
-		console.log('fg');
 		$(this).animate({width: "62.9%"},600,function () {
 			$(this).next().css('display','inline');
 		});
@@ -41,13 +40,16 @@ $(document).ready(function () {
 
 	});
 	$('.main').on('click', '.check', function () {
-		$(this).children().last().toggleClass("fa-check-square fa-square");
-		$(this).children().first().submit();
+		$(this).children().first().toggleClass("fa-check-square fa-square");
 	});
 
-	$('.main').on('click', '.del', function () {
-		$(this).children().first().submit();
-	});
+	// $('.main').on('click', '.del', function () {
+	// 	$(this).children().first().submit();
+	// });
+
+	// $('.main').on('click', '.edit', function () {
+	// 	$(this).children().first().submit();
+	// });
 	// $('.form-inline').focusout(function (argument) {
 	// 	console.log('gf');
 	// 	$(this).children().last().hide('slow');

@@ -25,12 +25,20 @@ body{
  	padding-top: 20px; 
  }
 
+.wild-form{
+  display: inline;
+}
+
 .form-inline{
 	margin-bottom: 5px;
 }
 
 .form-inline > .task{
 	width: 100%;
+}
+
+  .form-inline > .task-edit{
+  width: 60.5%;
 }
 
 .hm{

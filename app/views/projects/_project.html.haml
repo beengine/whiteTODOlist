@@ -2,8 +2,7 @@
   .panel-heading.hm
     %h4= best_in_place project, :name, :as => :input
     .pull-right
-      .btn.btn-xs.del
-        = button_to 'Destroy', project, {method: :delete, remote: true, form_class: 'hider'}
+      = button_to project, method: :delete, remote: true, form_class: 'wild-form', class: 'btn btn-default btn-xs del' do
         %i.fa.fa-trash
   .panel-body
     = form_for(@task, remote: true, html: {class: 'form-inline'}) do |f|

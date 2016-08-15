@@ -30,6 +30,22 @@ class TasksController < ApplicationController
    @task.save
   end
 
+  def edit
+    @task=Task.find(params[:id])
+  end
+
+  def update
+    @task=Task.find(params[:id])
+
+    respond_to do |format|
+      if @task.update_attributes(task_params)
+        format.html{}
+        format.js{}
+        format.json{}
+      end
+    end
+  end
+
 private
   def task_params
     params.require(:task).permit(:name, :project_id, :deadline, :priority)
