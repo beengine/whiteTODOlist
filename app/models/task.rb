@@ -3,6 +3,7 @@ class Task < ActiveRecord::Base
   belongs_to :project
 
   def get_deadline
+    return nil if deadline==nil
     unless done
       days = (deadline - DateTime.now.to_date).to_i
       if days > 0
