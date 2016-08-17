@@ -17,7 +17,7 @@
  */
 
 body{
-  background-image: url('goat.jpg');
+  background-image: image-url('goat.jpg');
 }
  .main{
  	max-width: 800px;
