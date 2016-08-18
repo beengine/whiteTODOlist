@@ -1,7 +1,7 @@
 class Task < ActiveRecord::Base
   include ActionView::Helpers::DateHelper
   belongs_to :project
-  validates :name, presence: true
+  validates_presence_of :name, :project, :priority
   validates_inclusion_of :priority, in: 1..3
 
   def get_deadline

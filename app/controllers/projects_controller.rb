@@ -1,12 +1,15 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @projects=Project.order(id: :desc).all
+    @projects=Project.where(user_id: current_user.id).order(id: :desc).all
     @project=Project.new
     @task=Task.new
   end
 
   def create
   @project = Project.new(project_params)
+  @project.user_id = current_user.id
  
   respond_to do |format|
     if @project.save

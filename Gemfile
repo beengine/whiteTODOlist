@@ -59,3 +59,5 @@ gem 'bootstrap-datepicker-rails'
 gem 'haml'
 gem 'best_in_place'
 gem 'jquery-ui-rails'
+
+gem 'devise'
