@@ -9,7 +9,8 @@
   %div
     %i.fa.fa-circle{class: "prior#{task.priority}"}
     = task.name 
-    %sup.deadline 
-      = task.get_deadline
+    %sup.deadline
+      = get_deadline(task)
+
 
     

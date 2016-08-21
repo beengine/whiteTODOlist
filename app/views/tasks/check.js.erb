@@ -1,1 +1,1 @@
-$('#task<%= @task.id %>').find('sup').html('<%= @task.get_deadline %>');
+$('#task<%= @task.id %>').find('sup').html('<%= get_deadline @task %>');

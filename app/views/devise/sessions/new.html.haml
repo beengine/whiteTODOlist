@@ -1,9 +1,12 @@
 .dvs
   .panel.panel-default
     .panel-heading
-      %h4 Log in
+      %h4
+        %i.fa.fa-check-square
+        Sweet TODO list
 
     .panel-body
+      %h5 Log in
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .form-group
           = f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'e-mail'

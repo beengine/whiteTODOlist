@@ -4,3 +4,4 @@
   = f.select(:priority, [['Low', 1], ['Normal', 2],['High', 3]],{},{ class: "form-control", prompt: "Priority"})
   = f.text_field :deadline, class: 'form-control date', placeholder: 'Deadline...', size: 10
   = f.submit class: 'btn btn-default'
+  %button.cancel
