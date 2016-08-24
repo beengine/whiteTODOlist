@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.new(task_params)
    
     respond_to do |format|
       if @task.save
@@ -15,7 +16,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task=Task.find(params[:id])
+    @task=current_user.tasks.find(params[:id])
     @task.destroy
     respond_to do |format|
       format.html { redirect_to products_url }
@@ -25,17 +26,17 @@ class TasksController < ApplicationController
   end
 
   def check
-    @task=Task.find(params[:id])
+    @task=current_user.tasks.find(params[:id])
    @task.done=!@task.done
    @task.save
   end
 
   def edit
-    @task=Task.find(params[:id])
+    @task=current_user.tasks.find(params[:id])
   end
 
   def update
-    @task=Task.find(params[:id])
+    @task=current_user.tasks.find(params[:id])
 
     respond_to do |format|
       if @task.update_attributes(task_params)
