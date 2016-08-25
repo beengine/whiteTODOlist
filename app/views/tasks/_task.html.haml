@@ -7,7 +7,7 @@
     = button_to task, method: :delete, remote: true, form_class: 'wild-form', class: 'btn btn-default btn-xs del' do
       %i.fa.fa-trash
   %div
-    %i.fa.fa-circle{class: "prior#{task.priority}"}
+    %i.fa.fa-circle{class: "prior-#{task.priority}"}
     = task.name 
     %sup.deadline
       = get_deadline(task)
