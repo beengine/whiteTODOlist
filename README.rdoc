@@ -7,6 +7,6 @@ http://sweettodolist.herokuapp.com
 Bootstrap, jQuery, FontAwesome were used.
 
 ruby version 2.2.4
+
 rails 4.2
 
-<tt>rake doc:app</tt>.
