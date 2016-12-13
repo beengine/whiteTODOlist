@@ -1,16 +1,14 @@
 %li.list-group-item.hm{id: "task#{task.id}"}
-  .pull-right
-    = button_to check_task_path(task), remote: true, class: 'btn btn-default btn-xs check', form_class: 'wild-form' do
-      %i.fa{class: task.done? ? 'fa-check-square' : 'fa-square'}
-    = button_to edit_task_path(task), method: :get, remote: true, form_class: 'wild-form', class: 'btn btn-default btn-xs edit' do
-      %i.fa.fa-pencil
-    = button_to task, method: :delete, remote: true, form_class: 'wild-form', class: 'btn btn-default btn-xs del' do
-      %i.fa.fa-trash
   %div
-    %i.fa.fa-circle{class: "prior-#{task.priority}"}
-    = task.name 
-    %sup.deadline
-      = get_deadline(task)
-
-
-    
+    .pull-right
+      = button_to check_task_path(task), remote: true, class: 'btn btn-default btn-xs check', form_class: 'wild-form' do
+        %i.fa{class: task.done? ? 'fa-check-square' : 'fa-square'}
+      = button_to edit_task_path(task), method: :get, remote: true, form_class: 'wild-form', class: 'btn btn-default btn-xs edit' do
+        %i.fa.fa-pencil
+      = button_to task, method: :delete, remote: true, form_class: 'wild-form', class: 'btn btn-default btn-xs del' do
+        %i.fa.fa-trash
+    %div
+      %i.fa.fa-circle{class: "prior-#{task.priority}"}
+      = task.name 
+      %sup.deadline
+        = get_deadline(task)

@@ -1,1 +1,2 @@
-$('#task<%= @task.id %>').html('<%= j (render 'form') %>');
+$('#task<%= @task.id %>').children().last().hide();
+$('#task<%= @task.id %>').append('<%= j (render 'form') %>');

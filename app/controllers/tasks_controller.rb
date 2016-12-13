@@ -27,8 +27,8 @@ class TasksController < ApplicationController
 
   def check
     @task=current_user.tasks.find(params[:id])
-   @task.done=!@task.done
-   @task.save
+    @task.done=!@task.done
+    @task.save
   end
 
   def edit
