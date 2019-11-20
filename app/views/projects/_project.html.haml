@@ -1,16 +1,17 @@
-.panel.panel-default{id: "project#{project.id}"}
-  .panel-heading.hm
+.card{id: "project#{project.id}"}
+  .card-header.hm
     %h4= best_in_place project, :name, :as => :input
-    .pull-right
-      = button_to project, method: :delete, remote: true, form_class: 'wild-form', class: 'btn btn-default btn-xs del' do
+    .float-right
+      = button_to project, method: :delete, remote: true, form_class: 'wild-form', class: 'btn btn-danger' do
+        %img{src: "https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/svg/trash.svg", height: '16px', width: '16px'}
         %i.fa.fa-trash
-  .panel-body
+  .card-body
     = form_for(@task, remote: true, html: {class: 'form-inline'}) do |f|
       = f.hidden_field :project_id, value: project.id
-      = f.text_field :name, class: 'form-control task', placeholder: 'Add task...', required: true
+      = f.text_field :name, class: 'form-control task', placeholder: 'Add task...', required: true, autocomplete: 'off'
       %span.hider
         = f.select(:priority, options_for_select(Task.priorities.keys), {}, {class: "form-control"})
         = f.text_field :deadline, class: 'form-control date', placeholder: 'Deadline...', size: 10
-        = f.submit class: 'btn btn-default'
+        = f.submit class: 'btn btn-secondary'
     %ul.list-group{id: "body#{project.id}"}
       = render project.tasks

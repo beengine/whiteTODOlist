@@ -10,15 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require best_in_place
 //= require jquery-ui
 //= require best_in_place.jquery-ui
-//= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
-//= require bootstrap-datepicker
 $(document).ready(function () {
 	$('.form-control.date').datepicker({
 		format: "yyyy-mm-dd"
@@ -33,7 +33,7 @@ $(document).ready(function () {
 	jQuery(".best_in_place").best_in_place();
 
 	$('.main').on('focusin', '.task', function (argument) {
-		$(this).animate({width: "62.9%"},600,function () {
+		$(this).animate({width: "59%"},600,function () {
 			$(this).next().css('display','inline');
 		});
 		

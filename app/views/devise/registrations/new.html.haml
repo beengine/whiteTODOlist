@@ -1,21 +1,21 @@
 .dvs
-  .panel.panel-default
-    .panel-heading
+  .card
+    .card-header
       %h4 Sign up
 
-    .panel-body
+    .card-body
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = devise_error_messages!
-        .form-group
+        .col-form-label
           = f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'e-mail'
-        .form-group
+        .col-form-label
           - if @minimum_password_length
             = @minimum_password_length
             %em characters minimum
           = f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'password'
-        .form-group
+        .col-form-label
           = f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'password confirmation'
-        = f.submit "Sign up", class: 'btn btn-default'
+        = f.submit "Sign up", class: 'btn btn-secondary'
 
       = render "devise/shared/links"
 

@@ -1,12 +1,12 @@
 %li.list-group-item.hm{id: "task#{task.id}"}
   %div
-    .pull-right
-      = button_to check_task_path(task), remote: true, class: 'btn btn-default btn-xs check', form_class: 'wild-form' do
-        %i.fa{class: task.done? ? 'fa-check-square' : 'fa-square'}
-      = button_to edit_task_path(task), method: :get, remote: true, form_class: 'wild-form', class: 'btn btn-default btn-xs edit' do
-        %i.fa.fa-pencil
-      = button_to task, method: :delete, remote: true, form_class: 'wild-form', class: 'btn btn-default btn-xs del' do
-        %i.fa.fa-trash
+    .float-right
+      = button_to check_task_path(task), remote: true, class: 'btn', form_class: 'wild-form' do
+        %img{src: "https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/svg/circle-#{ task.done? ? 'check' : 'x'}.svg", height: '12px', width: '12px'}
+      = button_to edit_task_path(task), method: :get, remote: true, form_class: 'wild-form', class: 'btn' do
+        %img{src: "https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/svg/pencil.svg", height: '12px', width: '12px'}
+      = button_to task, method: :delete, remote: true, form_class: 'wild-form', class: 'btn' do
+        %img{src: "https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/svg/trash.svg", height: '12px', width: '12px'}
     %div
       %i.fa.fa-circle{class: "prior-#{task.priority}"}
       = task.name 
