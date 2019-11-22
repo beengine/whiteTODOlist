@@ -1,0 +1,37 @@
+/ %script{src: "https://cdn.safecharge.com/safecharge_resources/v1/websdk/safecharge.js"}
+%script{src:"https://cdn.safecharge.com/safecharge_resources/v1/websdk/safecharge.js"}
+%form#payment-form{:action => "/charge", :method => "post"}
+  .form-row
+    %label{:for => "card-field-placeholder"}
+      Credit or debit card
+    #card-field-placeholder.some.initial.css-classes
+      / SFC Card widget will be inserted here.
+    / Used to display form errors.
+    #scard-errors{:role => "alert"}
+  %button Submit Payment
+
+.main
+  .center
+    Choose your plan
+  .card-group
+    .card
+      .card-header
+        Free
+      .card-body
+        $0
+        .btn.btn-secondary
+          Actual Plan
+    .card
+      .card-header
+        Pro
+      .card-body
+        $100
+        .btn.btn-primary
+          Get Plan
+    .card
+      .card-header
+        Unlim
+      .card-body
+        $0
+        .btn.btn-primary
+          Get Plan

@@ -6,4 +6,12 @@ class User < ActiveRecord::Base
 
   has_many :projects, dependent: :destroy
   has_many :tasks, through: :projects
+
+  def generate_client_id
+  	'tgdfgsf'
+  end
+
+  def generate_client_request_id
+  	'dfgsdfgsdg'
+  end
 end
