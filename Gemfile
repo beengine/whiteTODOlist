@@ -50,3 +50,4 @@ gem 'jquery-ui-rails'
 
 gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'httparty'
